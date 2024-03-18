@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container{
+    @apply max-w-[90rem] p-6 w-full mx-auto;
+}
+
+
+@layer components{
+    .header{
+        @apply bg-light shadow-md relative
+    }
+    .branding{
+        @apply md:flex items-center gap-12
+    }
+    .branding img{
+        @apply w-20
+    }
+    .branding .header__navd{
+        @apply hidden md:flex md:gap-10
+    }
+    .branding .header__navd li a{
+        @apply font-medium text-sm text-dark hover:text-berde
+    }
+    .header__action{
+        @apply bg-light absolute top-[8rem] right-0 w-0 h-[90vh] px-0 pt-0 overflow-hidden transition-all shadow-md
+        md:static md:h-fit md:w-fit md:shadow-none
+    }
+    .header__action.open{
+        @apply w-[80%] px-10 pt-10 transition-all
+    }
+    .header__action .header__navm{
+        @apply border-b-gray-400 border-b-[2px] pb-5 flex flex-col gap-5 md:hidden
+    }
+    .header__action .header__navm li:hover a{
+        @apply  text-berde
+    }
+    .header__action .header__navm li a{
+        @apply  font-medium text-xl text-dark
+    }
+    .header__action .header__btn a{
+        @apply flex gap-[1rem] items-center hover:text-berde
+    }
+    .header__action .header__btn{
+        @apply pt-5 flex-col gap-3 
+        md:flex md:flex-row-reverse md:p-2
+    }
+    .header__action .header__signIn{
+        @apply flex gap-5
+    }
+    .burger__menu{
+        @apply md:hidden
+    }
+    .burger__menu span{
+        @apply w-[1.5rem] h-[.2rem] bg-gray-700 block rounded-full transition-all 
+    }
+    .burger__menu span:nth-child(2){
+        @apply my-1
+    }
+    .header__wrapper{
+        @apply flex items-center justify-between
+    }
+    .burger__menu.open span:first-child{
+        @apply transform translate-y-[10px] rotate-[225deg] transition-all
+    }
+    .burger__menu.open span:nth-child(2){
+        @apply opacity-0 transition-all
+    }
+    .burger__menu.open span:last-child{
+        @apply transform translate-y-[-6px] rotate-[-225deg] transition-all
+    }
+
+    .coffee__wrapper{
+        @apply flex-col md:max-w-[90rem] md:items-center md:m-auto
+    }
+    .coffee__wrapper .coffee__cards{
+        @apply pt-8 text-center md:flex md:h-full md:w-full 
+    }
+    .coffee__cards .coffee__details{
+        @apply p-6 md:w-[50%] md:text-center 
+    }
+    .coffee__cards .coffee__details h2{
+        @apply p-2 mb-3 text-[2rem] font-bold text-berde 
+        md:text-[3rem] md:leading-10 md:mb-7
+    }
+    .coffee__cards .coffee__details h3{
+        @apply text-berde md:text-[1.5rem] 
+    }
+    .coffee__cards:nth-child(even){
+        @apply flex-row-reverse
+    }
+    .coffee__img img{
+        @apply md:h-fit md:w-fit
+    }
+    .coffee__cards .coffee__img{
+        @apply md:w-[50%]
+    }
+    .coffee__cards .coffee__details .light{
+        @apply p-2 mb-3 text-xl font-bold text-light md:text-light
+    }
+    .coffee__cards .coffee__details .desc{
+        @apply text-light md:text-light md:text-[1.5rem]
+    }
+   
+    
+}
+
+@layer utilities{
+    .btn{
+        @apply inline-block py-[.5rem] px-[1rem] rounded-full border-transparent border-[1px] text-sm font-medium
+        hover:scale-[1.1]
+    }
+    .btn.bg--dark{
+        @apply bg-dark text-light
+    }
+    .btn.bg--light{
+        @apply bg-light text-dark border-dark border-[1px]
+    }
+    .btn.bg--berde{
+        @apply p-3 mt-4 rounded-3xl w-28 h-[3rem] bg-berde text-light  border-light border-[1px]
+       
+    }
+    .btn.bg--lightberde{
+        @apply p-3 mt-4 text-base text-berde border-berde border-[1px]
+        rounded-3xl w-28 h-[3rem] text-center  hover:bg-gray-300
+    }
+}
