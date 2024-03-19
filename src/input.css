@@ -8,6 +8,7 @@
 
 
 @layer components{
+    /* ------------------------------ Header -----------------------------------*/
     .header{
         @apply bg-light shadow-md relative
     }
@@ -62,7 +63,7 @@
         @apply flex items-center justify-between
     }
     .burger__menu.open span:first-child{
-        @apply transform translate-y-[10px] rotate-[225deg] transition-all
+        @apply transform translate-y-[9px] rotate-[225deg] transition-all
     }
     .burger__menu.open span:nth-child(2){
         @apply opacity-0 transition-all
@@ -71,14 +72,18 @@
         @apply transform translate-y-[-6px] rotate-[-225deg] transition-all
     }
 
+    /* ----------------------------------------Banner-------------------------------- */
     .coffee__wrapper{
-        @apply flex-col md:max-w-[90rem] md:items-center md:m-auto
+        @apply flex-col pb-6 md:pb-6 md:max-w-[90rem] md:items-center md:m-auto 
     }
     .coffee__wrapper .coffee__cards{
         @apply pt-8 text-center md:flex md:h-full md:w-full 
     }
     .coffee__cards .coffee__details{
-        @apply p-6 md:w-[50%] md:text-center 
+        @apply  p-4 md:w-[50%] md:text-center md:flex md:flex-col md:justify-center md:mx-auto
+    }
+    .coffee__cards .coffee__details a{
+        @apply md:w-[20%] md:mx-auto
     }
     .coffee__cards .coffee__details h2{
         @apply p-2 mb-3 text-[2rem] font-bold text-berde 
@@ -104,6 +109,134 @@
     }
    
     
+
+    /* -----------------------------Links----------------------- */
+    .links{
+        @apply py-6 border-t-2
+    }
+    .links__item ul{
+        @apply max-h-[0rem] overflow-hidden transition-all 
+        flex flex-col gap-6 md:max-h-[50rem] md:pt-6
+    }
+    .links__item ul.open{
+        @apply max-h-[50rem] transition-all pt-6
+    }
+    .links__item ul li a{
+        @apply  text-gray-500 hover:text-dark
+    }
+    .links__item h4{
+        @apply flex items-center justify-between font-semibold hover:cursor-pointer
+    }
+    .links__wrapper{
+        @apply flex flex-col gap-6 pb-6 md:pb-6
+        md:grid md:grid-cols-6 
+    }
+    .links__item h4 i.open{
+        @apply  transform rotate-180 transition-all
+    }
+    .links__item h4 i{
+        @apply transition-all 
+        md:hidden 
+    }
+
+    /* ---------------------------------- Footer----------------------------- */
+    .footer__wrapper{
+        @apply border-t-2 
+    }
+    .footer__socials i{
+        @apply items-center w-10 pb-8 pt-8 text-[2rem] text-dark
+       
+    }
+    .footer__privacy ul li a{
+        @apply font-medium text-dark text-[1rem] flex flex-col hover:underline
+       
+    }
+    .footer__privacy ul{
+        @apply md:flex md:flex-row md:w-[80rem] md:gap-0 mb-5
+    }
+    .footer__privacy li{
+        @apply mb-3 md:px-6 md:border-r-3
+    }
+    .footer__privacy li:last-child{
+        @apply md:border-r-0
+    }
+    .footer__privacy p{
+        @apply text-gray-500 pt-8 text-[.8rem]
+    }
+    
+
+    /* --------------------------------------------REWARDS PAGE------------------------------------- */
+    .rBanner{
+        @apply bg-bituinBanner min-h-[600px] bg-cover bg-lightberde flex text-center
+        md:bg-starBanner md:bg-left md:text-left md:items-center
+    }
+    .rBanner__wrapper h1{
+        @apply font-semibold text-[1.8rem] mb-4 md:font-semibold md:text-4xl
+    }
+    .rBanner__wrapper p{
+        @apply font-semibold text-[1rem] mb-4 md:text-xl
+    }
+    .rBanner__wrapper a{
+        @apply flex flex-col justify-center 
+    }
+
+    /* ---------------------------Coffee Tab------------------------ */
+    .menucoffee__nav{
+        @apply bg-lightgreen pt-10 md:pt-12
+    }
+    .menucoffee__nav h4{
+        @apply text-2xl font-semibold text-center md:mb-[4rem] md:text-3xl
+    }
+    .menucoffee__nav ul{
+        @apply flex items-center justify-center mt-6
+    }
+    .menucoffee__nav ul li{
+        @apply px-4 pb-5 border-b-4 border-transparent
+    }
+    .menucoffee__nav ul li.active{
+        @apply border-b-4 border-berde
+    }
+    .menucoffee__nav ul li a{
+        @apply text-lg font-semibold md:text-2xl
+    }
+    .coffee__tab{
+        @apply bg-lightblue relative h-[500px] md:h-[290px]
+    }
+    .coffee__item{
+        @apply absolute opacity-0 transition-all top-8 
+        md:grid md:grid-cols-[_2fr,_2fr] md:items-center md:max-w-[50rem] md:left-[25%]
+    }
+    .coffee__item.active{
+        @apply opacity-100 transition-all
+    }
+    .coffee__text h5{
+        @apply text-xl font-semibold text-center
+    }
+    .coffee__text p{
+        @apply text-center
+    }
+    .coffee__text{
+        @apply flex flex-col gap-4 mt-4
+    }
+
+    /* ------------------------Instruction-------------------- */
+    .info__wrapper{
+        @apply py-6 md:py-16
+    }
+    .info__cardContent{
+        @apply md:grid md:grid-cols-3
+    }
+    .info__cards{
+        @apply grid grid-cols-[_.5fr,_2fr] p-[1rem] md:flex md:flex-col md:text-center
+    }
+    .info__number{
+        @apply rounded-full border-[1px] border-berde max-w-[3rem] max-h-[3rem]
+        md:mx-auto md:m-10
+    }
+    .info__number h4{
+        @apply font-bold text-3xl text-center
+    } 
+   
 }
 
 @layer utilities{
@@ -118,7 +251,8 @@
         @apply bg-light text-dark border-dark border-[1px]
     }
     .btn.bg--berde{
-        @apply p-3 mt-4 rounded-3xl w-28 h-[3rem] bg-berde text-light  border-light border-[1px]
+        @apply p-3 mt-4 rounded-3xl h-[3rem] bg-berde text-light  border-light border-[1px]
+        hover:bg-gray-700
        
     }
     .btn.bg--lightberde{
